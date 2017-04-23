@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="田中暁">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="<%= data.libMockLink %>/sanitize.css">
+<link rel="stylesheet" type="text/css" href="<%= data.cssCmnMockLink %>">
+<title>Y's Must Lv1</title>
+</head>
+<body>
+<header>
+  <h1>Must Lv1</h1>
+  <p class="my-name">COS-Div： 田中 暁</p>
+</header>
+<main>
+  <dl class="url-list">
+    <% data.mockUrl.forEach(function (url) { %>
+    <dt>課題1</dt>
+    <dd><a href="<%= url %>" target="_blank"><%= url %></a></dd>
+    <% }); %>
+  </dl>
+</main>
+<footer>
+  <p>林さん監修の HTML/CSS Must Lv1 のモックです。</p>
+  <small>&copy; 2017 Y's</small>
+</footer>
+</body>
+</html>

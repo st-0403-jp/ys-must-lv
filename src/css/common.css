@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  background-color: #ccc;
+}
+header, main, footer {
+  padding: 30px;
+}
+header {
+  color: #fff;
+  background-color: #222;
+}
+footer {
+  position: relative;
+  color: #fff;
+  background-color: #222;
+}
+h1 {
+  font-size: 3rem;
+}
+footer small {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+.my-name {
+  text-align: right;
+}
+.url-list dt {
+  font-size: 2rem;
+}
+.url-list dd {
+  text-indent: 100px;
+}
+.url-list dd a {
+  transition: opacity 0.1s;
+}
+.url-list dd a:link {
+  color: blue;
+}
+.url-list dd a:hover {
+  opacity: 0.5;
+}

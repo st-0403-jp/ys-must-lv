@@ -1,0 +1,26 @@
+{
+  "name": "Y's-Must-Lv1",
+  "version": "1.0.0",
+  "description": "Must-Lv1の課題集",
+  "main": "index.html",
+  "dependencies": {
+    "babel": "~6.3.13"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "gulp-clean": "~0.3.1",
+    "gulp-concat": "~2.6.0",
+    "gulp-ejs": "^2.1.1",
+    "gulp-plumber": "~1.0.1",
+    "gulp-rename": "~1.2.2",
+    "gulp-webserver": "~0.9.1"
+  },
+  "scripts": {
+    "prestart": "gulp ejs & gulp css & gulp copy",
+    "start": "gulp serve",
+    "prebuild": "gulp cleanDist",
+    "build": "gulp ejs & gulp css & gulp copy"
+  },
+  "author": "",
+  "license": "ISC"
+}
