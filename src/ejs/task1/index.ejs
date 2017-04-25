@@ -7,6 +7,7 @@
 <meta name="author" content="田中暁">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="<%= data.cssCmnTaskLink %>">
+<link rel="stylesheet" type="text/css" href="../css/task1.css">
 <title>課題1</title>
 </head>
 <body>
@@ -15,6 +16,102 @@
   <p>田中暁</p>
 </header>
 <main>
+    <form>
+        <dl>
+            <%
+            var dls = {
+                data: [
+                    {
+                        dt: 1,
+                        dd: {
+                            h2: 'ユーザー名',
+                            input: {
+                                type: 'text',
+                                name: 'user',
+                                value: '',
+                                id: 'input-user'
+                            },
+                            option: ''
+                        }
+                    },
+                    {
+                        dt: 2,
+                        dd: {
+                            h2: 'パスワード',
+                            input: {
+                                type: 'password',
+                                name: 'password',
+                                value: '',
+                                id: 'input-password'
+                            },
+                            option: ''
+                        }
+                    },
+                    {
+                        dt: 3,
+                        dd: {
+                            h2: '',
+                            input: {
+                                type: 'checkbox',
+                                name: 'saveInfoCheck',
+                                value: '',
+                                id: 'input-save-info-check'
+                            },
+                            option: 'ログイン情報を記憶する'
+                        }
+                    },
+                    {
+                        dt: 4,
+                        dd: {
+                            h2: '',
+                            input: {
+                                type: 'submit',
+                                name: 'login',
+                                value: 'ログイン',
+                                id: 'input-login'
+                            },
+                            option: ''
+                        }
+                    },
+                    {
+                        dt: 5,
+                        dd: {
+                            h2: '',
+                            input: {
+                                type: '',
+                                name: '',
+                                value: '',
+                                id: ''
+                            },
+                            option: 'パスワードを忘れた場合はこちら'
+                        }
+                    }
+                ]
+            };
+            dls.data.forEach(function (dlitem, index) {
+                var itemDt = dlitem.dt;
+                var itemDd = dlitem.dd;
+            %>
+            <dt><%= itemDt %></dt>
+            <dd>
+                <% if (itemDd.h2) { %>
+                    <h2><label for="<%= itemDd.input.id %>"><%= itemDd.h2 %></label></h2>
+                <% } %>
+                <% if (itemDd.input.type) { %>
+                    <input type="<%= itemDd.input.type %>" name="<%= itemDd.input.name %>" value="<%= itemDd.input.value %>" id="<%= itemDd.input.id %>">
+                <% } %>
+                <% if (itemDd.option) { %>
+                    <% if (itemDt === 3) { %>
+                        <label for="<%= itemDd.input.id %>"><%= itemDd.option %></label>
+                    <% } %>
+                    <% if (itemDt === 5) { %>
+                        <a href="#"><%= itemDd.option %></a>
+                    <% } %>
+                <% } %>
+            </dd>
+            <% }); %>
+        </dl>
+    </form>
 </main>
 <footer>
 </footer>

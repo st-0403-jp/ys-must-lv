@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+dl {
+    width: 100%;
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+}
+dt {
+    width: 20%;
+}
+dd {
+    width: 80%
+}

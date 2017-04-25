@@ -12,7 +12,8 @@ var path = {
   'src/ejs/task1/index.ejs'
   ],
   css: [
-  'src/css/common.css'
+  'src/css/common.css',
+  'src/css/task1.css'
   ],
   dist: 'dist',
   lib: 'src/lib/*',
