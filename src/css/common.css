@@ -27,6 +27,15 @@ footer {
 h1 {
   font-size: 3rem;
 }
+a {
+  transition: opacity 0.1s;
+}
+a:link {
+  color: #222;
+}
+a:hover {
+  opacity: 0.5;
+}
 footer small {
   position: absolute;
   bottom: 30px;

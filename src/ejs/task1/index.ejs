@@ -16,8 +16,8 @@
   <p>田中暁</p>
 </header>
 <main>
-    <form>
-        <dl>
+    <form action="/" method="get">
+        <dl id="task1_form-dl">
             <%
             var dls = {
                 data: [
@@ -92,8 +92,8 @@
                 var itemDt = dlitem.dt;
                 var itemDd = dlitem.dd;
             %>
-            <dt><%= itemDt %></dt>
-            <dd>
+            <dt><span><%= itemDt %></span></dt>
+            <dd class="task1_form-dd-<%= index %>">
                 <% if (itemDd.h2) { %>
                     <h2><label for="<%= itemDd.input.id %>"><%= itemDd.h2 %></label></h2>
                 <% } %>

@@ -26,6 +26,14 @@ var path = {
   libMockLink: 'lib'
 };
 
+var workTime = [
+  '2.5',
+  '0',
+  '0',
+  '0',
+  '0'
+];
+
 gulp.task('ejs', function () {
   return gulp.src(path.ejs, {base: 'src/ejs'})
   .pipe(ejs({
@@ -33,7 +41,8 @@ gulp.task('ejs', function () {
       mockUrl: path.mockUrl,
       cssCmnMockLink: path.cssCmnMockLink,
       cssCmnTaskLink: path.cssCmnTaskLink,
-      libMockLink: path.libMockLink
+      libMockLink: path.libMockLink,
+      workTime: workTime
     }
   }, {ext: '.html'}))
   .pipe(gulp.dest(path.dist));

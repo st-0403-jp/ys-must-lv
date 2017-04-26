@@ -17,9 +17,9 @@
 </header>
 <main>
   <dl class="url-list">
-    <% data.mockUrl.forEach(function (url) { %>
+    <% data.mockUrl.forEach(function (url, index) { %>
     <dt>課題1</dt>
-    <dd><a href="<%= url %>" target="_blank"><%= url %></a></dd>
+    <dd><a href="<%= url %>" target="_blank"><%= url %></a>（<%= data.workTime[index] %> h）</dd>
     <% }); %>
   </dl>
 </main>
