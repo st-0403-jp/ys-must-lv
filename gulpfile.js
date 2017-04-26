@@ -5,6 +5,7 @@ var rename = require("gulp-rename");
 var concat = require("gulp-concat");
 var server = require('gulp-webserver');
 var ejs = require('gulp-ejs');
+var runSequece = require('run-sequence');
 
 var path = {
   ejs: [
@@ -15,6 +16,7 @@ var path = {
   'src/css/common.css',
   'src/css/task1.css'
   ],
+  mock: 'mock',
   dist: 'dist',
   lib: 'src/lib/*',
   all: '*',
@@ -34,6 +36,12 @@ var workTime = [
   '0'
 ];
 
+var isDist = false;
+
+gulp.task('dist', function () {
+  return isDist = true;
+});
+
 gulp.task('ejs', function () {
   return gulp.src(path.ejs, {base: 'src/ejs'})
   .pipe(ejs({
@@ -45,22 +53,22 @@ gulp.task('ejs', function () {
       workTime: workTime
     }
   }, {ext: '.html'}))
-  .pipe(gulp.dest(path.dist));
+  .pipe(gulp.dest((isDist) ? path.dist : path.mock));
   console.log('ejs完了');
 });
 
 gulp.task('css', function () {
   return gulp.src(path.css, {base: 'src/css'})
-  .pipe(gulp.dest(path.dist + '/css'));
+  .pipe(gulp.dest((isDist) ? path.dist + '/css' : path.mock + '/css'));
   console.log('css完了');
 });
 
 gulp.task('copy', function () {
-  gulp.src(path.lib).pipe(gulp.dest(path.dist + '/lib'));
+  return gulp.src(path.lib).pipe(gulp.dest((isDist) ? path.dist + '/lib' : path.mock + '/lib'));
 });
 
-gulp.task('cleanDist', function () {
-  gulp.src(path.dist + '/*').pipe(clean());
+gulp.task('clean', function () {
+  return gulp.src((isDist) ? path.dist + '/*' : path.mock + '/*').pipe(clean());
 });
 
 function watchSrc () {
@@ -70,7 +78,7 @@ function watchSrc () {
 
 gulp.task('serve', function () {
   watchSrc();
-  gulp.src(path.dist)
+  gulp.src((isDist) ? path.dist : path.mock)
   .pipe(server({
     host: '0.0.0.0',
     port: 8008,
@@ -78,6 +86,15 @@ gulp.task('serve', function () {
     open: true
   }));
   console.log('listening ...');
+});
+
+gulp.task('build', function () {
+  runSequece('dist', 'clean', ['ejs', 'css', 'copy']);
+  console.log('building ...');
+});
+
+gulp.task('check', function () {
+  runSequece('dist', 'serve');
 });
 
 gulp.task('default', function () {

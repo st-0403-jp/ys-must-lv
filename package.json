@@ -13,13 +13,16 @@
     "gulp-ejs": "^2.1.1",
     "gulp-plumber": "~1.0.1",
     "gulp-rename": "~1.2.2",
-    "gulp-webserver": "~0.9.1"
+    "gulp-webserver": "~0.9.1",
+    "run-sequence": "^1.2.2"
   },
   "scripts": {
-    "prestart": "gulp ejs & gulp css & gulp copy",
+    "prebuild": "gulp clean",
+    "build": "gulp ejs & gulp css & gulp copy",
+    "prestart": "npm run build",
     "start": "gulp serve",
-    "prebuild": "gulp cleanDist",
-    "build": "gulp ejs & gulp css & gulp copy"
+    "predist": "gulp build",
+    "dist": "gulp check"
   },
   "author": "",
   "license": "ISC"
