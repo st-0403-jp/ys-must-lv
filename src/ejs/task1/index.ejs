@@ -1,94 +1,84 @@
+<%
+var taskName = '課題1';
+var cssName = 'task1.css';
+%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="田中暁">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="<%= data.cssCmnTaskLink %>">
-<link rel="stylesheet" type="text/css" href="../css/task1.css">
-<title>課題1</title>
-</head>
+<%- include('../base.ejs', {parts: 'head', page: {taskName: taskName, cssName: cssName}}) %>
 <body>
-<header>
-  <h1>課題1</h1>
-  <p>田中暁</p>
-</header>
+<%- include('../base.ejs', {parts: 'header', page: {taskName: taskName}}) %>
 <main>
     <form action="/" method="get">
         <dl id="task1_form-dl">
             <%
-            var dls = {
-                data: [
-                    {
-                        dt: 1,
-                        dd: {
-                            h2: 'ユーザー名',
-                            input: {
-                                type: 'text',
-                                name: 'user',
-                                value: '',
-                                id: 'input-user'
-                            },
-                            option: ''
-                        }
-                    },
-                    {
-                        dt: 2,
-                        dd: {
-                            h2: 'パスワード',
-                            input: {
-                                type: 'password',
-                                name: 'password',
-                                value: '',
-                                id: 'input-password'
-                            },
-                            option: ''
-                        }
-                    },
-                    {
-                        dt: 3,
-                        dd: {
-                            h2: '',
-                            input: {
-                                type: 'checkbox',
-                                name: 'saveInfoCheck',
-                                value: '',
-                                id: 'input-save-info-check'
-                            },
-                            option: 'ログイン情報を記憶する'
-                        }
-                    },
-                    {
-                        dt: 4,
-                        dd: {
-                            h2: '',
-                            input: {
-                                type: 'submit',
-                                name: 'login',
-                                value: 'ログイン',
-                                id: 'input-login'
-                            },
-                            option: ''
-                        }
-                    },
-                    {
-                        dt: 5,
-                        dd: {
-                            h2: '',
-                            input: {
-                                type: '',
-                                name: '',
-                                value: '',
-                                id: ''
-                            },
-                            option: 'パスワードを忘れた場合はこちら'
-                        }
+            var dls = [
+                {
+                    dt: 1,
+                    dd: {
+                        h2: 'ユーザー名',
+                        input: {
+                            type: 'text',
+                            name: 'user',
+                            value: '',
+                            id: 'input-user'
+                        },
+                        option: ''
                     }
-                ]
-            };
-            dls.data.forEach(function (dlitem, index) {
+                },
+                {
+                    dt: 2,
+                    dd: {
+                        h2: 'パスワード',
+                        input: {
+                            type: 'password',
+                            name: 'password',
+                            value: '',
+                            id: 'input-password'
+                        },
+                        option: ''
+                    }
+                },
+                {
+                    dt: 3,
+                    dd: {
+                        h2: '',
+                        input: {
+                            type: 'checkbox',
+                            name: 'saveInfoCheck',
+                            value: '',
+                            id: 'input-save-info-check'
+                        },
+                        option: 'ログイン情報を記憶する'
+                    }
+                },
+                {
+                    dt: 4,
+                    dd: {
+                        h2: '',
+                        input: {
+                            type: 'submit',
+                            name: 'login',
+                            value: 'ログイン',
+                            id: 'input-login'
+                        },
+                        option: ''
+                    }
+                },
+                {
+                    dt: 5,
+                    dd: {
+                        h2: '',
+                        input: {
+                            type: '',
+                            name: '',
+                            value: '',
+                            id: ''
+                        },
+                        option: 'パスワードを忘れた場合はこちら'
+                    }
+                }
+            ];
+            dls.forEach(function (dlitem, index) {
                 var itemDt = dlitem.dt;
                 var itemDd = dlitem.dd;
             %>
@@ -113,7 +103,6 @@
         </dl>
     </form>
 </main>
-<footer>
-</footer>
+<%- include('../base.ejs', {parts: 'footer'}) %>
 </body>
 </html>

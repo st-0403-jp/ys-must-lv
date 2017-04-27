@@ -1,0 +1,22 @@
+<% if (parts === 'head') { %>
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="田中暁">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="<%= data.cssCmnTaskLink %>">
+    <link rel="stylesheet" type="text/css" href="../css/<%= page.cssName %>">
+    <title><%= page.taskName %></title>
+</head>
+<% } %>
+<% if (parts === 'header') { %>
+<header>
+  <h1><%= page.taskName %></h1>
+  <p>田中暁</p>
+</header>
+<% } %>
+<% if (parts === 'footer') { %>
+<footer>
+</footer>
+<% } %>
