@@ -10,18 +10,22 @@ var runSequece = require('run-sequence');
 var path = {
   ejs: [
   'src/ejs/index.ejs',
-  'src/ejs/task1/index.ejs'
+  'src/ejs/task1/index.ejs',
+  'src/ejs/task2/index.ejs'
   ],
   css: [
   'src/css/common.css',
-  'src/css/task1.css'
+  'src/css/task1.css',
+  'src/css/task2.css'
   ],
   mock: 'mock',
   dist: 'dist',
   lib: 'src/lib/*',
+  img: 'src/img/*',
   all: '*',
   mockUrl: [
-  'task1/'
+  'task1',
+  'task2'
   ],
   cssCmnMockLink: 'css/common.css',
   cssCmnTaskLink: '../css/common.css',
@@ -64,7 +68,12 @@ gulp.task('css', function () {
 });
 
 gulp.task('copy', function () {
-  return gulp.src(path.lib).pipe(gulp.dest((isDist) ? path.dist + '/lib' : path.mock + '/lib'));
+  return (function () {
+    gulp.src(path.lib)
+    .pipe(gulp.dest((isDist) ? path.dist + '/lib' : path.mock + '/lib'));
+    gulp.src(path.img)
+    .pipe(gulp.dest((isDist) ? path.dist + '/img' : path.mock + '/img'));
+  })();
 });
 
 gulp.task('clean', function () {

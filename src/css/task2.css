@@ -1,0 +1,22 @@
+@charset "utf-8";
+main {
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+#task2_logo > img {
+    width: 300px;
+}
+table th {
+    width: 30%;
+    padding: 30px;
+}
+table td {
+    padding-left: 30px;
+}
+table label {
+    font-size: 12px;
+}
+table span.block {
+    display: block;
+}

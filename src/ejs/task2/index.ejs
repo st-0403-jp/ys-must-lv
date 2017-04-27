@@ -1,0 +1,163 @@
+<%
+var taskName = '課題2';
+var cssName = 'task2.css';
+%>
+<!DOCTYPE html>
+<html>
+<%- include('../base.ejs', {parts: 'head', page: {taskName: taskName, cssName: cssName}}) %>
+<body>
+<%- include('../base.ejs', {parts: 'header', page: {taskName: taskName}}) %>
+<main>
+    <form action="/" method="get">
+        <h2 id="task2_logo">
+            <img src="../img/task2_logo.png">
+        </h2>
+        <table id="task2_piano-info-table" border="1" width="100%" cellspacing="0" bordercolor="#222">
+            <caption>ピアノの情報</caption>
+            <tbody>
+                <%
+                var tbody = [
+                    {
+                        th: 'ピアノのメーカー',
+                        td: {
+                            input: [
+                                {
+                                    type: 'radio',
+                                    label: 'ヤマハ'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: 'カワイ'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: 'その他'
+                                }
+                            ]
+                        },
+                        required: true
+                    },
+                    {
+                        th: 'ピアノの種類',
+                        td: {
+                            input: [
+                                {
+                                    type: 'radio',
+                                    label: 'アップライトピアノ（縦型）'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: 'グランドピアノ'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: '電子ピアノ・エレクトーン'
+                                }
+                            ]
+                        },
+                        required: true
+                    },
+                    {
+                        th: 'モデル名',
+                        td: {
+                            input: [
+                                {
+                                    type: 'text',
+                                    label: ''
+                                }
+                            ]
+                        },
+                        required: true
+                    },
+                    {
+                        th: '製造番号',
+                        td: {
+                            input: [
+                                {
+                                    type: 'text',
+                                    label: ''
+                                }
+                            ]
+                        },
+                        required: true
+                    },
+                    {
+                        th: 'ペダルの本数',
+                        td: {
+                            input: [
+                                {
+                                    type: 'radio',
+                                    label: '2本'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: '3本'
+                                }
+                            ]
+                        },
+                        required: true
+                    },
+                    {
+                        th: 'ピアノ色',
+                        td: {
+                            input: [
+                                {
+                                    type: 'radio',
+                                    label: '黒'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: '白'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: '茶（木目含む）'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: 'その他'
+                                }
+                            ]
+                        },
+                        required: true
+                    },
+                    {
+                        th: 'オプション機能',
+                        td: {
+                            input: [
+                                {
+                                    type: 'checkbox',
+                                    label: '自動演奏機能'
+                                },
+                                {
+                                    type: 'checkbox',
+                                    label: '消音装置（ヘッドホンを使用できる装置）'
+                                }
+                            ]
+                        },
+                        required: false
+                    }
+                ]; 
+                tbody.forEach(function (tr, trIndex) { 
+                %>
+                <tr>
+                    <th><%= tr.th %></th>
+                    <td>
+                        <% tr.td.input.forEach(function (inputItem, inputIndex) { %>
+                            <span class="<% if (trIndex === 6) { %>block<% } %>">
+                                <input id="" type="<%= inputItem.type %>" name="" value="<%= inputItem.label %>" <% if (tr.required) { %>required<% } %>>
+                                <% if (inputItem.label) { %>
+                                <label for=""><%= inputItem.label %></label>
+                                <% } %>
+                            </span>
+                        <% }); %>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </form>
+</main>
+<%- include('../base.ejs', {parts: 'footer'}) %>
+</body>
+</html>
