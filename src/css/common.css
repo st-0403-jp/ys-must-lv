@@ -42,6 +42,14 @@ footer small {
   bottom: 30px;
   right: 30px;
 }
+.required-label {
+  display: inline-block;
+  font-size: 12px;
+  padding: 0 5px;
+  background-color: #f00;
+  color: #fff;
+}
+/* mockList */
 .my-name {
   text-align: right;
 }

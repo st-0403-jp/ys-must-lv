@@ -8,30 +8,56 @@ var cssName = 'task2.css';
 <body>
 <%- include('../base.ejs', {parts: 'header', page: {taskName: taskName}}) %>
 <main>
-    <form action="/" method="get">
+    <form id="task2_form" action="/" method="get">
         <h2 id="task2_logo">
-            <img src="../img/task2_logo.png">
+            <img src="../img/task2_logo.png" alt="ズバット　ピアノ買取比較のロゴ">
         </h2>
-        <table id="task2_piano-info-table" border="1" width="100%" cellspacing="0" bordercolor="#222">
-            <caption>ピアノの情報</caption>
+        <%
+        var tables = [
+            {
+                id: '01',
+                name: 'piano-info',
+                caption: 'ピアノの情報'
+            },
+            {
+                id: '02',
+                name: 'piano-place',
+                caption: 'ピアノが置いてある場所'
+            },
+            {
+                id: '03',
+                name: 'user-info',
+                caption: 'お客様の情報'
+            }
+        ];
+        tables.forEach(function (table, tableIndex) {
+        %>
+        <table id="task2_<%= table.name %>-table-<%= table.id %>" border="1" width="100%" cellspacing="0" bordercolor="#222">
+            <caption><h3><%= table.caption %></h3></caption>
             <tbody>
                 <%
-                var tbody = [
+                var tbody01 = [
                     {
                         th: 'ピアノのメーカー',
                         td: {
                             input: [
                                 {
                                     type: 'radio',
-                                    label: 'ヤマハ'
+                                    label: 'ヤマハ',
+                                    name: 'maker',
+                                    id: 'maker1'
                                 },
                                 {
                                     type: 'radio',
-                                    label: 'カワイ'
+                                    label: 'カワイ',
+                                    name: 'maker',
+                                    id: 'maker2'
                                 },
                                 {
                                     type: 'radio',
-                                    label: 'その他'
+                                    label: 'その他',
+                                    name: 'maker',
+                                    id: 'maker3'
                                 }
                             ]
                         },
@@ -43,15 +69,21 @@ var cssName = 'task2.css';
                             input: [
                                 {
                                     type: 'radio',
-                                    label: 'アップライトピアノ（縦型）'
+                                    label: 'アップライトピアノ（縦型）',
+                                    name: 'variety',
+                                    id: 'variety1'
                                 },
                                 {
                                     type: 'radio',
-                                    label: 'グランドピアノ'
+                                    label: 'グランドピアノ',
+                                    name: 'variety',
+                                    id: 'variety2'
                                 },
                                 {
                                     type: 'radio',
-                                    label: '電子ピアノ・エレクトーン'
+                                    label: '電子ピアノ・エレクトーン',
+                                    name: 'variety',
+                                    id: 'variety3'
                                 }
                             ]
                         },
@@ -63,7 +95,9 @@ var cssName = 'task2.css';
                             input: [
                                 {
                                     type: 'text',
-                                    label: ''
+                                    label: '',
+                                    name: 'model',
+                                    id: 'model'
                                 }
                             ]
                         },
@@ -75,7 +109,9 @@ var cssName = 'task2.css';
                             input: [
                                 {
                                     type: 'text',
-                                    label: ''
+                                    label: '',
+                                    name: 'makeNumber',
+                                    id: 'makeNumber'
                                 }
                             ]
                         },
@@ -87,11 +123,15 @@ var cssName = 'task2.css';
                             input: [
                                 {
                                     type: 'radio',
-                                    label: '2本'
+                                    label: '2本',
+                                    name: 'pedalCount',
+                                    id: 'pedalCount1'
                                 },
                                 {
                                     type: 'radio',
-                                    label: '3本'
+                                    label: '3本',
+                                    name: 'pedalCount',
+                                    id: 'pedalCount2'
                                 }
                             ]
                         },
@@ -103,19 +143,27 @@ var cssName = 'task2.css';
                             input: [
                                 {
                                     type: 'radio',
-                                    label: '黒'
+                                    label: '黒',
+                                    name: 'color',
+                                    id: 'color1'
                                 },
                                 {
                                     type: 'radio',
-                                    label: '白'
+                                    label: '白',
+                                    name: 'color',
+                                    id: 'color2'
                                 },
                                 {
                                     type: 'radio',
-                                    label: '茶（木目含む）'
+                                    label: '茶（木目含む）',
+                                    name: 'color',
+                                    id: 'color3'
                                 },
                                 {
                                     type: 'radio',
-                                    label: 'その他'
+                                    label: 'その他',
+                                    name: 'color',
+                                    id: 'color4'
                                 }
                             ]
                         },
@@ -127,35 +175,315 @@ var cssName = 'task2.css';
                             input: [
                                 {
                                     type: 'checkbox',
-                                    label: '自動演奏機能'
+                                    label: '自動演奏機能',
+                                    name: 'pianoOption1',
+                                    id: 'pianoOption1'
                                 },
                                 {
                                     type: 'checkbox',
-                                    label: '消音装置（ヘッドホンを使用できる装置）'
+                                    label: '消音装置（ヘッドホンを使用できる装置）',
+                                    name: 'pianoOption2',
+                                    id: 'pianoOption2'
+                                }
+                            ],
+                            link: '消音装置とは'
+                        },
+                        required: false
+                    }
+                ];
+                var tbody02 = [
+                    {
+                        th: '住所',
+                        td: {
+                            input: [
+                                {
+                                    type: 'text',
+                                    label: '',
+                                    name: 'zip',
+                                    id: 'zip',
+                                    option: {
+                                        link: '郵便番号を調べる',
+                                        small: '※郵便番号はハイフン(-)なしで入力してください。'
+                                    }
+                                },
+                                {
+                                    type: 'select',
+                                    label: '',
+                                    name: 'pref',
+                                    id: 'pref',
+                                    option: {
+                                        options: ['選択','北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県','茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県','静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県']
+                                    }
+                                },
+                                {
+                                    type: 'text',
+                                    label: '',
+                                    name: 'address1',
+                                    id: 'address1'
+                                },
+                                {
+                                    type: 'text',
+                                    label: '',
+                                    name: 'address2',
+                                    id: 'address2'
+                                },
+                                {
+                                    type: 'text',
+                                    label: '',
+                                    name: 'address3',
+                                    id: 'address3'
+                                }
+                            ]
+                        },
+                        required: true
+                    },
+                    {
+                        th: '建物タイプと階数',
+                        td: {
+                            input: [
+                                {
+                                    type: 'select',
+                                    label: '',
+                                    name: 'houseType1',
+                                    id: 'houseType1',
+                                    option: {
+                                        options: ['選択','一戸建て','マンション','アパート','ビル','公共の建物','その他']
+                                    }
+                                },
+                                {
+                                    type: 'select',
+                                    label: '',
+                                    name: 'houseType2',
+                                    id: 'houseType2',
+                                    option: {
+                                        options: ['選択','地下2階','地下1階','1階','2階','3階','4階','5階','6階','7階','8階','9階','10階','11階以上']
+                                    }
+                                }
+                            ]
+                        },
+                        required: true
+                    },
+                    {
+                        th: 'エレベーター',
+                        td: {
+                            input: [
+                                {
+                                    type: 'radio',
+                                    label: 'あり',
+                                    name: 'elevatorFlg',
+                                    id: 'elevatorFlg1'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: 'なし',
+                                    name: 'elevatorFlg',
+                                    id: 'elevatorFlg2'
+                                }
+                            ]
+                        },
+                        required: true
+                    },
+                    {
+                        th: '建物への搬入方法',
+                        td: {
+                            input: [
+                                {
+                                    type: 'radio',
+                                    label: '階段',
+                                    name: 'carryMethod',
+                                    id: 'carryMethod1'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: 'エレベーター',
+                                    name: 'carryMethod',
+                                    id: 'carryMethod2'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: 'クレーン使用',
+                                    name: 'carryMethod',
+                                    id: 'carryMethod3'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: 'その他',
+                                    name: 'carryMethod',
+                                    id: 'carryMethod4'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: 'わからない',
+                                    name: 'carryMethod',
+                                    id: 'carryMethod5'
                                 }
                             ]
                         },
                         required: false
                     }
-                ]; 
-                tbody.forEach(function (tr, trIndex) { 
+                ];
+                var tbody03 = [
+                    {
+                        th: 'お名前',
+                        td: {
+                            input: [
+                                {
+                                    type: 'text',
+                                    label: '性',
+                                    name: 'userFamilyName',
+                                    id: 'userFamilyName'
+                                },
+                                {
+                                    type: 'text',
+                                    label: '名',
+                                    name: 'userFirstName',
+                                    id: 'userFirstName'
+                                },
+                                {
+                                    type: 'text',
+                                    label: 'セイ',
+                                    name: 'userFamilyNameKana',
+                                    id: 'userFamilyNameKana'
+                                },
+                                {
+                                    type: 'text',
+                                    label: 'メイ',
+                                    name: 'userFirstNameKana',
+                                    id: 'userFirstNameKana'
+                                }
+                            ]
+                        },
+                        required: true
+                    },
+                    {
+                        th: 'TEL',
+                        td: {
+                            input: [
+                                {
+                                    type: 'text',
+                                    label: '',
+                                    name: 'userTel',
+                                    id: 'userTel',
+                                    option: {
+                                        small: '※03-0000-0000、0300000000　ハイフン(-)有り無しどちらでも入力可能です。'
+                                    }
+                                }
+                            ]
+                        },
+                        required: true
+                    },
+                    {
+                        th: 'E-mail',
+                        td: {
+                            input: [
+                                {
+                                    type: 'text',
+                                    label: '',
+                                    name: 'userEmail',
+                                    id: 'userEmail'
+                                }
+                            ]
+                        },
+                        required: true
+                    },
+                    {
+                        th: '希望連絡方法',
+                        td: {
+                            input: [
+                                {
+                                    type: 'radio',
+                                    label: '電話',
+                                    name: 'userConnect',
+                                    id: 'userConnest1'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: 'E-mail',
+                                    name: 'userConnect',
+                                    id: 'userConnest2'
+                                },
+                                {
+                                    type: 'radio',
+                                    label: 'どちらでも可',
+                                    name: 'userConnect',
+                                    id: 'userConnest3'
+                                }
+                            ],
+                            small: '※E-mailをご選択いただいた場合でも、電話連絡をさせていただくことがあります。'
+                        },
+                        required: false
+                    },
+                    {
+                        th: 'その他質問、備考',
+                        td: {
+                            input: [
+                                {
+                                    type: 'textarea',
+                                    label: '',
+                                    name: 'userQuestion',
+                                    id: 'userQuestion'
+                                }
+                            ],
+                            small: '※300文字以内'
+                        },
+                        required: false
+                    }
+                ];
+                var tbody = [];
+                if (table.id === '01') {
+                    tbody = tbody01;
+                } else if (table.id === '02') {
+                    tbody = tbody02;
+                } else if (table.id === '03') {
+                    tbody = tbody03;
+                }
+                tbody.forEach(function (tr, trIndex) {
                 %>
                 <tr>
-                    <th><%= tr.th %></th>
-                    <td>
+                    <th class="th-<%= trIndex %> <% if (tr.required) { %>required<% } %>"><%= tr.th %><% if (tr.required) { %><span class="required-label">必須</span><% } %></th>
+                    <td class="td-<%= trIndex %>">
                         <% tr.td.input.forEach(function (inputItem, inputIndex) { %>
-                            <span class="<% if (trIndex === 6) { %>block<% } %>">
-                                <input id="" type="<%= inputItem.type %>" name="" value="<%= inputItem.label %>" <% if (tr.required) { %>required<% } %>>
+                            <span>
+                                <% if (inputItem.type === 'select') { %>
+                                <select id="<%= inputItem.id %>" name="<%= inputItem.name %>" <% if (tr.required) { %>required<% } %>>
+                                    <% inputItem.option.options.forEach(function (option, optionIndex) { %>
+                                        <option value="<%= optionIndex %>"><%= option %></option>
+                                    <% }); %>
+                                </select>
+                                <% } else { %>
+                                <input id="<%= inputItem.id %>" type="<%= inputItem.type %>" name="<%= inputItem.name %>" value="" <% if (tr.required) { %>required<% } %>>
+                                <% } %>
                                 <% if (inputItem.label) { %>
-                                <label for=""><%= inputItem.label %></label>
+                                <label for="<%= inputItem.id %>"><%= inputItem.label %></label>
+                                <% } %>
+                                <% if (inputItem.option) { %>
+                                    <% if (inputItem.option.link) { %>
+                                        <a href="#"><%= inputItem.option.link %></a>
+                                    <% } %>
+                                    <% if (inputItem.option.small) { %>
+                                        <small><%= inputItem.option.small %></small>
+                                    <% } %>
                                 <% } %>
                             </span>
                         <% }); %>
+                        <% if (tr.td.link) { %>
+                            <a href="#"><%= tr.td.link %></a>
+                        <% } %>
+                        <% if (tr.td.small) { %>
+                            <small><%= tr.td.small %></small>
+                        <% } %>
                     </td>
                 </tr>
                 <% }); %>
             </tbody>
         </table>
+        <% }); %>
+        <section id="task2_startBtnArea">
+            <div>
+                <small>内容をご確認後、<a href="#">『ご利用規約』</a>に同意の上</small>
+                <input id="startBtn" type="image" src="../img/task2_startBanner.png" alt="無料　一括査定依頼スタート　ボタン">
+            </div>
+        </section>
     </form>
 </main>
 <%- include('../base.ejs', {parts: 'footer'}) %>
