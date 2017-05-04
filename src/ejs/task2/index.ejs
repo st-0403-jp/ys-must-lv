@@ -329,7 +329,7 @@ var cssName = 'task2.css';
                             input: [
                                 {
                                     type: 'text',
-                                    label: '性',
+                                    label: '姓',
                                     name: 'userFamilyName',
                                     id: 'userFamilyName'
                                 },
@@ -360,7 +360,7 @@ var cssName = 'task2.css';
                         td: {
                             input: [
                                 {
-                                    type: 'text',
+                                    type: 'tel',
                                     label: '',
                                     name: 'userTel',
                                     id: 'userTel',
@@ -377,7 +377,7 @@ var cssName = 'task2.css';
                         td: {
                             input: [
                                 {
-                                    type: 'text',
+                                    type: 'email',
                                     label: '',
                                     name: 'userEmail',
                                     id: 'userEmail'
@@ -446,12 +446,14 @@ var cssName = 'task2.css';
                             <span>
                                 <% if (inputItem.type === 'select') { %>
                                     <select id="<%= inputItem.id %>" name="<%= inputItem.name %>" <% if (tr.required) { %>required<% } %>>
-                                    <% inputItem.option.options.forEach(function (option, optionIndex) { %>
-                                        <option value="<%= optionIndex %>"><%= option %></option>
-                                    <% }); %>
-                                </select>
+                                        <% inputItem.option.options.forEach(function (option, optionIndex) { %>
+                                            <option value="<%= optionIndex %>"><%= option %></option>
+                                        <% }); %>
+                                    </select>
+                                <% } else if (inputItem.type === 'textarea') { %>
+                                    <textarea id="<%= inputItem.id %>" type="<%= inputItem.type %>" name="<%= inputItem.name %>" value="" maxlength="300" rows="5" cols="60" <% if (tr.required) { %>required<% } %>></textarea>
                                 <% } else { %>
-                                    <input id="<%= inputItem.id %>" type="<%= inputItem.type %>" name="<%= inputItem.name %>" value="" <% if (tr.required) { %>required<% } %>>
+                                    <input id="<%= inputItem.id %>" type="<%= inputItem.type %>" name="<%= inputItem.name %>" value="" <% if (tr.required) { %>required<% } %> <% if (inputItem.type === 'textarea') { %>rows="4" cols="40"<% } %>>
                                 <% } %>
                                 <% if (inputItem.label) { %>
                                     <label for="<%= inputItem.id %>"><%= inputItem.label %></label>

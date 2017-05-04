@@ -52,8 +52,26 @@ main {
 #task2_form td input[type="radio"] {
     margin-right: 2px;
 }
+#task2_form small {
+    display: block;
+    margin-top: 5px;
+}
 #task2_piano-info-table-01 .td-6 > span {
     display: block;
+    margin-bottom: 3px;
+}
+#task2_piano-place-table-02 .th-0 {
+    padding: 100px 30px;
+}
+#task2_piano-place-table-02 .td-0 > span {
+    display: block;
+    margin-bottom: 10px;
+}
+#task2_piano-place-table-02 .td-0 > span > #zip {
+    margin-right: 10px;
+}
+#task2_user-info-table-03 .th-4 {
+    padding: 60px 30px;
 }
 #task2_startBtnArea {
     text-align: center;
@@ -61,6 +79,7 @@ main {
 }
 #task2_startBtnArea small {
     display: block;
+    margin: 0;
 }
 #task2_startBtnArea #startBtn {
     width: 500px;
