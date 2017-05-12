@@ -35,12 +35,14 @@ main {
 #task2_form th .required-label {
     width: 40px;
     height: 20px;
+    line-height: 20px;
     text-align: center;
     position: absolute;
     top: 0;
     bottom: 0;
     right: 20px;
     margin: auto;
+    overflow: hidden;
 }
 #task2_form td {
     padding-left: 30px;
@@ -70,6 +72,20 @@ main {
 #task2_piano-place-table-02 .td-0 > span > #zip {
     margin-right: 10px;
 }
+
+#task2_user-info-table-03 .td-0 {
+    font-size: 0;
+}
+#task2_user-info-table-03 .td-0 > span {
+    display: inline-block;
+    font-size: 1rem;
+    width: 50%;
+    margin: 0;
+    margin-right: -100px;
+    vertical-align: top;
+    position: relative;
+}
+
 #task2_user-info-table-03 .th-4 {
     padding: 60px 30px;
 }

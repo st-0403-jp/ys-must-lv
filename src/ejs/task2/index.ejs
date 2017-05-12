@@ -329,13 +329,13 @@ var cssName = 'task2.css';
                             input: [
                                 {
                                     type: 'text',
-                                    label: '姓',
+                                    label: '　姓',
                                     name: 'userFamilyName',
                                     id: 'userFamilyName'
                                 },
                                 {
                                     type: 'text',
-                                    label: '名',
+                                    label: '　名',
                                     name: 'userFirstName',
                                     id: 'userFirstName'
                                 },
@@ -444,6 +444,9 @@ var cssName = 'task2.css';
                     <td class="td-<%= trIndex %>">
                         <% tr.td.input.forEach(function (inputItem, inputIndex) { %>
                             <span>
+                                <% if (table.id === '03' && tr.th === 'お名前') { %>
+                                    <label for="<%= inputItem.id %>"><%= inputItem.label %></label>
+                                <% } %>
                                 <% if (inputItem.type === 'select') { %>
                                     <select id="<%= inputItem.id %>" name="<%= inputItem.name %>" <% if (tr.required) { %>required<% } %>>
                                         <% inputItem.option.options.forEach(function (option, optionIndex) { %>
@@ -455,7 +458,7 @@ var cssName = 'task2.css';
                                 <% } else { %>
                                     <input id="<%= inputItem.id %>" type="<%= inputItem.type %>" name="<%= inputItem.name %>" value="" <% if (tr.required) { %>required<% } %> <% if (inputItem.type === 'textarea') { %>rows="4" cols="40"<% } %>>
                                 <% } %>
-                                <% if (inputItem.label) { %>
+                                <% if (inputItem.label && tr.th !== 'お名前') { %>
                                     <label for="<%= inputItem.id %>"><%= inputItem.label %></label>
                                 <% } %>
                                 <% if (inputItem.option) { %>
