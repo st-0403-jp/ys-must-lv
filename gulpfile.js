@@ -8,16 +8,8 @@ var ejs = require('gulp-ejs');
 var runSequece = require('run-sequence');
 
 var path = {
-  ejs: [
-  'src/ejs/index.ejs',
-  'src/ejs/task1/index.ejs',
-  'src/ejs/task2/index.ejs'
-  ],
-  css: [
-  'src/css/common.css',
-  'src/css/task1.css',
-  'src/css/task2.css'
-  ],
+  ejs: 'src/ejs/**/index.ejs',
+  css: 'src/css/*.css',
   mock: 'mock',
   dist: 'dist',
   lib: 'src/lib/*',
@@ -25,7 +17,10 @@ var path = {
   all: '*',
   mockUrl: [
   'task1',
-  'task2'
+  'task2',
+  'task3',
+  'task4',
+  'task5'
   ],
   cssCmnMockLink: 'css/common.css',
   cssCmnTaskLink: '../css/common.css',
@@ -35,7 +30,7 @@ var path = {
 var workTime = [
   '2.5',
   '5.5',
-  '0',
+  '0.25',
   '0',
   '0'
 ];

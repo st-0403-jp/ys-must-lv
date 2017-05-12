@@ -1,0 +1,14 @@
+<%
+var taskName = '課題3';
+var cssName = 'task3.css';
+%>
+<!DOCTYPE html>
+<html>
+<%- include('../base.ejs', {parts: 'head', page: {taskName: taskName, cssName: cssName}}) %>
+<body>
+<%- include('../base.ejs', {parts: 'header', page: {taskName: taskName}}) %>
+<main>
+</main>
+<%- include('../base.ejs', {parts: 'footer'}) %>
+</body>
+</html>
