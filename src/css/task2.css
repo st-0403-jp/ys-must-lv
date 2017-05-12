@@ -2,6 +2,9 @@
 body {
     background-color: #fff;
 }
+header, footer {
+    min-width: 1000px;
+}
 main {
     width: 1000px;
     margin: 0 auto;
@@ -72,18 +75,28 @@ main {
 #task2_piano-place-table-02 .td-0 > span > #zip {
     margin-right: 10px;
 }
+#task2_piano-place-table-02 .td-3 {
+    font-size: 0;
+}
+#task2_piano-place-table-02 .td-3 > span {
+    display: inline-block;
+    font-size: 12px;
+    width: 33%;
+    margin: 0;
+    margin-right: -50px;
+    vertical-align: top;
+}
 
 #task2_user-info-table-03 .td-0 {
     font-size: 0;
 }
 #task2_user-info-table-03 .td-0 > span {
     display: inline-block;
-    font-size: 1rem;
+    font-size: 12px;
     width: 50%;
     margin: 0;
     margin-right: -100px;
     vertical-align: top;
-    position: relative;
 }
 
 #task2_user-info-table-03 .th-4 {
