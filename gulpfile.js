@@ -16,11 +16,12 @@ var path = {
   img: 'src/img/*',
   all: '*',
   mockUrl: [
-  'task1',
-  'task2',
-  'task3',
-  'task4',
-  'task5'
+  'task1/index.html',
+  'task2/index.html',
+  'task3/index.html',
+  'task4/index.html',
+  'task5/index.html',
+  'task6/index.html'
   ],
   cssCmnMockLink: 'css/common.css',
   cssCmnTaskLink: '../css/common.css',
@@ -31,6 +32,7 @@ var workTime = [
   '2.5',
   '5.5',
   '3',
+  '0',
   '0',
   '0'
 ];
@@ -64,8 +66,6 @@ gulp.task('css', function () {
 
 gulp.task('copy', function () {
   return (function () {
-    gulp.src(path.lib)
-    .pipe(gulp.dest((isDist) ? path.dist + '/lib' : path.mock + '/lib'));
     gulp.src(path.img)
     .pipe(gulp.dest((isDist) ? path.dist + '/img' : path.mock + '/img'));
   })();
