@@ -4,7 +4,7 @@ var cssName = 'task4.css';
 var shosekiData = [
     {
         name: '書籍画像',
-        img: 'task4_shoseki.jpg'
+        img: 'task4_shosek.jpg'
     },
     {
         name: '書籍画像',
@@ -43,10 +43,11 @@ var shosekiData = [
         <section class="task4_relation-book-list-wrap">
             <h3>■書籍</h3>
             <ul>
-                <% shosekiData.forEach(function () { %>
+                <% shosekiData.forEach(function (shoseki) { %>
                 <li>
                     <figure>
-                        <img src="../img/task4_shoseki.jpg" alt="書籍画像">
+                        <img src="../img/<%= shoseki.img %>" alt="<%= shoseki.name %>">
+                        <figcaption>書籍画像</figcaption>
                     </figure>
                 </li>
                 <% }); %>
