@@ -1,0 +1,66 @@
+<%
+var taskName = '課題4';
+var cssName = 'task4.css';
+var shosekiData = [
+    {
+        name: '書籍画像',
+        img: 'task4_shoseki.jpg'
+    },
+    {
+        name: '書籍画像',
+        img: 'task4_shoseki.jpg'
+    },
+    {
+        name: '書籍画像',
+        img: 'task4_shoseki.jpg'
+    },
+    {
+        name: '書籍画像',
+        img: 'task4_shoseki.jpg'
+    },
+    {
+        name: '書籍画像',
+        img: 'task4_shoseki.jpg'
+    }
+];
+%>
+<!DOCTYPE html>
+<html>
+<%- include('../base.ejs', {parts: 'head', page: {taskName: taskName, cssName: cssName}}) %>
+<body>
+<%- include('../base.ejs', {parts: 'header', page: {taskName: taskName}}) %>
+<main>
+    <article>
+        <h1>走れメロス<br><span>太宰治</span></h1>
+        <p>
+            メロスは<em>激怒</em>した。必ず、かの<ruby>邪智<rt>じゃち</rt>暴虐<rt>ぼうぎゃく</rt></ruby>の王を除かなければならぬと決意した。<br>
+            メロスには政治がわからぬ。メロスは、村の牧人である。<span class="f-style_i">笛を吹き</span>、<strong>羊</strong>と遊んで暮らして来た。<br>
+            けれども<span class="bg-c_yellow">邪悪</span>に対しては、人一倍に<span class="f-style_i">敏感</span>であった。
+        </p>
+    </article>
+    <aside>
+        <h2>補足情報</h2>
+        <section class="task4_relation-book-list-wrap">
+            <h3>■書籍</h3>
+            <ul>
+                <% shosekiData.forEach(function () { %>
+                <li>
+                    <figure>
+                        <img src="../img/task4_shoseki.jpg" alt="書籍画像">
+                    </figure>
+                </li>
+                <% }); %>
+            </ul>
+        </section>
+        <section>
+            <h3>■動画</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/wGb1r3rIiSE" frameborder="0" allowfullscreen></iframe>
+        </section>
+        <section>
+            <address>お問い合わせはこちらまで「<a href="#">info@xxx.com</a>」</address>
+        </section>
+    </aside>
+</main>
+<%- include('../base.ejs', {parts: 'footer'}) %>
+</body>
+</html>
