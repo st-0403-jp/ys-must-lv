@@ -28,6 +28,18 @@ var table = [
                 value: 590000,
                 payee: '楽天銀行',
                 payDate: '6/10'
+            },
+            {
+                entry: '',
+                value: '',
+                payee: '',
+                payDate: ''
+            },
+            {
+                entry: '収入合計',
+                value: 1094997,
+                payee: '',
+                payDate: ''
             }
         ]
     },
@@ -57,6 +69,18 @@ var table = [
                 value: 590000,
                 payee: '住信SBI',
                 payDate: '6/10'
+            },
+            {
+                entry: '',
+                value: '',
+                payee: '',
+                payDate: ''
+            },
+            {
+                entry: '総貯蓄額',
+                value: 740316,
+                payee: '',
+                payDate: ''
             }
         ]
     },
@@ -152,6 +176,18 @@ var table = [
                 value: 0,
                 payee: '住信SBI',
                 payDate: '5/25'
+            },
+            {
+                entry: '',
+                value: '',
+                payee: '',
+                payDate: ''
+            },
+            {
+                entry: '支出合計',
+                value: 353691,
+                payee: '',
+                payDate: ''
             }
         ]
     },
@@ -223,6 +259,42 @@ var table = [
                 value: 4500,
                 budget: 10000,
                 balance: 5500
+            },
+            {
+                entry: '',
+                value: '',
+                payee: '',
+                payDate: ''
+            },
+            {
+                entry: '',
+                value: '',
+                payee: '',
+                payDate: ''
+            },
+            {
+                entry: '',
+                value: '',
+                payee: '',
+                payDate: ''
+            },
+            {
+                entry: '',
+                value: '',
+                payee: '',
+                payDate: ''
+            },
+            {
+                entry: '',
+                value: '',
+                payee: '',
+                payDate: ''
+            },
+            {
+                entry: '生活費計',
+                value: 108720,
+                payee: '',
+                payDate: ''
             }
         ]
     }
@@ -234,11 +306,15 @@ var table = [
 <body>
 <%- include('../base.ejs', {parts: 'header', page: {taskName: taskName}}) %>
 <main>
-    <section>
+    <section id="task5_wrap">
         <h2>2014年6月</h2>
         <article>
+            <div class="table-wrap">
             <% table.forEach(function (tbody, tbodyIndex) { %>
-            <table>
+            <% if (tbodyIndex === 2) { %>
+            <div class="table-wrap">
+            <% } %>
+            <table id="task5_table-<%= tbodyIndex %>" cellspacing="0">
                 <caption><%= tbody.title %></caption>
                 <tbody>
                     <% if (tbodyIndex === 3) { %>
@@ -250,10 +326,10 @@ var table = [
                     </tr>
                     <% tbody.td.forEach(function (tRow, tRowIndex) { %>
                     <tr>
-                        <td><%= tRow.entry %></td>
-                        <td><%= tRow.value %></td>
-                        <td><%= tRow.budget %></td>
-                        <td><%= tRow.balance %></td>
+                        <td><% if (tRow.entry) { %><%= tRow.entry %><% } else { %>&nbsp;<% } %></td>
+                        <td><% if (tRow.value) { %><%= tRow.value %><% } else { %>&nbsp;<% } %></td>
+                        <td><% if (tRow.budget) { %><%= tRow.budget %><% } else { %>&nbsp;<% } %></td>
+                        <td><% if (tRow.balance) { %><%= tRow.balance %><% } else { %>&nbsp;<% } %></td>
                     </tr>
                     <% }); %>
                     <% } else { %>
@@ -265,16 +341,20 @@ var table = [
                     </tr>
                     <% tbody.td.forEach(function (tRow, tRowIndex) { %>
                     <tr>
-                        <td><%= tRow.entry %></td>
-                        <td><%= tRow.value %></td>
-                        <td><%= tRow.payee %></td>
-                        <td><%= tRow.payDate %></td>
+                        <td><% if (tRow.entry) { %><%= tRow.entry %><% } else { %>&nbsp;<% } %></td>
+                        <td><% if (tRow.value) { %><%= tRow.value %><% } else { %>&nbsp;<% } %></td>
+                        <td><% if (tRow.budget) { %><%= tRow.budget %><% } else { %>&nbsp;<% } %></td>
+                        <td><% if (tRow.balance) { %><%= tRow.balance %><% } else { %>&nbsp;<% } %></td>
                     </tr>
                     <% }); %>
                     <% } %>
                 </tbody>
             </table>
+            <% if (tbodyIndex === 1) { %>
+            </div>
+            <% } %>
             <% }); %>
+        </div>
         </article>
     </section>
     <nav>

@@ -4,3 +4,54 @@ main {
     margin: 0 auto;
     background-color: #fff;
 }
+#task5_wrap > h2 {
+    margin-bottom: 10px;
+}
+#task5_wrap .table-wrap {
+    overflow: hidden;
+}
+#task5_wrap table {
+    border-width: 1px;
+    border-style: solid;
+    width: 45%;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+#task5_wrap table:nth-child(odd) {
+    float: left;
+}
+#task5_wrap table:nth-child(even) {
+    float: right;
+}
+#task5_wrap table > caption {
+    text-align: left;
+    font-weight: bold;
+}
+#task5_wrap table td:nth-child(2) {
+    background-color: orange;
+    text-align: right;
+}
+#task5_wrap table td:nth-child(3) {
+    text-align: center;
+}
+#task5_wrap table td:nth-child(4) {
+    text-align: right;
+}
+
+#task5_table-0 {
+    border-color: #f0f;
+}
+#task5_table-0 th {
+    background-color: #f0f;
+    color: #fff;
+}
+#task5_table-0 td {
+    border-bottom: 1px dashed #f0f;
+    border-right: 1px solid #f0f;
+}
+#task5_table-0 td:last-child {
+    border-right: none;
+}
+#task5_table-0 tr:last-child td {
+    border-bottom: none;
+}
