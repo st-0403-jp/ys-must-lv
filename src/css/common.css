@@ -60,7 +60,7 @@ a:hover {
   font-size: 2rem;
 }
 .url-list dd {
-  text-indent: 100px;
+  text-indent: 150px;
 }
 .url-list dd a {
   transition: opacity 0.1s;
