@@ -5,20 +5,23 @@
     <meta name="description" content="">
     <meta name="author" content="田中暁">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="<%= data.cssCmnTaskLink %>">
-    <link rel="stylesheet" type="text/css" href="../css/<%= page.cssName %>">
-    <title><%= page.taskName %></title>
+    <link rel="stylesheet" type="text/css" href="../css/<%= data.cssCmnLink %>">
+    <link rel="stylesheet" type="text/css" href="../css/<%= data.cssTaskLink %>">
+    <title><%= data.exe %> <%= page.task %></title>
+    <% data.libLink.forEach(function(libName) { %>
+        <script src="../lib/<%= libName %>"></script>
+    <% }); %>
 </head>
 <% } %>
 <% if (parts === 'header') { %>
 <header>
-    <h1><%= page.taskName %></h1>
+    <h1><%= page.task %></h1>
     <p>田中暁</p>
 </header>
 <% } %>
 <% if (parts === 'footer') { %>
 <footer id="cmn-footer">
-    <p>林さん監修の HTML/CSS Must Lv1 のモックです。</p>
+    <p>林さん監修の <%= data.exe %> Must Lv1 のモックです。</p>
     <small id="copy-ys">&copy; 2017 Y's</small>
 </footer>
 <% } %>

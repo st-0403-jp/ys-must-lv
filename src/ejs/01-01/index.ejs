@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<%
+var baseUrl = '../';
+var task = '01-01';
+%>
+<html>
+<%- include(baseUrl + 'base.ejs', {parts: 'head', data: data, page: {task: task}}) %>
+<body>
+  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + ' 色を変える'} }) %>
+<main id="task_01-01">
+    <div class="square">CSS版</div>
+    <div class="square">JavaScript版</div>
+</main>
+<%- include(baseUrl + 'base.ejs', {parts: 'footer', data: data}) %>
+<script src="<%= baseUrl %>js/<%= task %>.js"></script>
+</body>
+</html>

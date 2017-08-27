@@ -18,7 +18,7 @@
   },
   "scripts": {
     "prebuild": "gulp clean",
-    "build": "gulp ejs & gulp css & gulp copy",
+    "build": "gulp ejs & gulp css & gulp js & gulp copy",
     "prestart": "npm run build",
     "start": "gulp serve",
     "predist": "gulp build",

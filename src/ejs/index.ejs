@@ -6,7 +6,7 @@
 <meta name="description" content="">
 <meta name="author" content="田中暁">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="<%= data.cssCmnMockLink %>">
+<link rel="stylesheet" type="text/css" href="css/<%= data.cssCmnLink %>">
 <title>Y's Must Lv1</title>
 </head>
 <body>
@@ -16,14 +16,13 @@
 </header>
 <main>
   <dl class="url-list">
-    <% data.mockUrl.forEach(function (url, index) {
-      var taskNumber = index + 1;
+    <% data.tasks.forEach(function (task) {
     %>
-    <dt>課題<%= taskNumber %></dt>
-    <dd><a href="<%= url %>" target="_blank"><%= url %></a>（<%= data.workTime[index] %> h）</dd>
+    <dt><%= task %></dt>
+    <dd><a href="<%= task %>/index.html" target="_blank"><%= task %>/index.html</a></dd>
     <% }); %>
   </dl>
 </main>
-<%- include('base.ejs', {parts: 'footer'}) %>
+<%- include('base.ejs', {parts: 'footer', data: data}) %>
 </body>
 </html>

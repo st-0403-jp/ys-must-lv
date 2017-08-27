@@ -7,35 +7,29 @@ var server = require('gulp-webserver');
 var ejs = require('gulp-ejs');
 var runSequece = require('run-sequence');
 
+var exe = 'jQuery演習';
+
 var path = {
   ejs: 'src/ejs/**/index.ejs',
   css: 'src/css/*.css',
+  js: 'src/js/*.js',
   mock: 'mock',
   dist: 'dist',
   lib: 'src/lib/*',
   img: 'src/img/*',
   all: '*',
-  mockUrl: [
-  'task1/index.html',
-  'task2/index.html',
-  'task3/index.html',
-  'task4/index.html',
-  'task5/index.html',
-  'task6/index.html'
+  tasks: [
+    '01-01',
+    '01-02',
+    '01-03',
+    '02-01'
   ],
-  cssCmnMockLink: 'css/common.css',
-  cssCmnTaskLink: '../css/common.css',
-  libMockLink: 'lib'
+  cssCmnLink: 'common.css',
+  cssTaskLink: 'task.css',
+  libLink: [
+    'jquery.min.js'
+  ]
 };
-
-var workTime = [
-  '2.5',
-  '5.5',
-  '3',
-  '2',
-  '5',
-  '1.5'
-];
 
 var isDist = false;
 
@@ -47,11 +41,11 @@ gulp.task('ejs', function () {
   return gulp.src(path.ejs, {base: 'src/ejs'})
   .pipe(ejs({
     data: {
-      mockUrl: path.mockUrl,
-      cssCmnMockLink: path.cssCmnMockLink,
-      cssCmnTaskLink: path.cssCmnTaskLink,
-      libMockLink: path.libMockLink,
-      workTime: workTime
+      exe: exe,
+      tasks: path.tasks,
+      cssCmnLink: path.cssCmnLink,
+      cssTaskLink: path.cssTaskLink,
+      libLink: path.libLink
     }
   }, {ext: '.html'}))
   .pipe(gulp.dest((isDist) ? path.dist : path.mock));
@@ -64,11 +58,15 @@ gulp.task('css', function () {
   console.log('css完了');
 });
 
+gulp.task('js', function () {
+  return gulp.src(path.js, {base: 'src/js'})
+  .pipe(gulp.dest((isDist) ? path.dist + '/js' : path.mock + '/js'));
+  console.log('js完了');
+});
+
 gulp.task('copy', function () {
-  return (function () {
-    gulp.src(path.img)
-    .pipe(gulp.dest((isDist) ? path.dist + '/img' : path.mock + '/img'));
-  })();
+  return gulp.src(path.lib)
+    .pipe(gulp.dest((isDist) ? path.dist + '/lib' : path.mock + '/lib'));
 });
 
 gulp.task('clean', function () {
@@ -78,6 +76,7 @@ gulp.task('clean', function () {
 function watchSrc () {
   gulp.watch(['src/**/*.ejs'], ['ejs']);
   gulp.watch(['src/**/*.css'], ['css']);
+  gulp.watch(['src/**/*.js'], ['js']);
 };
 
 gulp.task('serve', function () {
@@ -93,7 +92,7 @@ gulp.task('serve', function () {
 });
 
 gulp.task('build', function () {
-  runSequece('dist', 'clean', ['ejs', 'css', 'copy']);
+  runSequece('dist', 'clean', ['ejs', 'css', 'ja', 'copy']);
   console.log('building ...');
 });
 
