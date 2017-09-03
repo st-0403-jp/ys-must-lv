@@ -40,3 +40,22 @@
     font-size: 48px;
 }
 
+/* 03 */
+#task_03-01 {
+    width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#task_03-01 img {
+    width: 800px;
+}
+.slidegallery {
+    width: 2400px;
+}
+.slidegallery > span {
+    font-size: 0;
+}
+.slidegallery > span > img {
+    font-size: 1rem;
+    vertical-align: top;
+}

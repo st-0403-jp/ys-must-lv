@@ -22,7 +22,8 @@ var path = {
     '01-01',
     '01-02',
     '01-03',
-    '02-01'
+    '02-01',
+    '03-01'
   ],
   cssCmnLink: 'common.css',
   cssTaskLink: 'task.css',
@@ -65,8 +66,14 @@ gulp.task('js', function () {
 });
 
 gulp.task('copy', function () {
-  return gulp.src(path.lib)
-    .pipe(gulp.dest((isDist) ? path.dist + '/lib' : path.mock + '/lib'));
+  var copySrc = [
+    'lib',
+    'img'
+  ];
+  return copySrc.forEach(function (name) {
+    gulp.src(path[name])
+    .pipe(gulp.dest((isDist) ? path.dist + '/' + name : path.mock + '/' + name));
+  });
 });
 
 gulp.task('clean', function () {

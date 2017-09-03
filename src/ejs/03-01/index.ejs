@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<%
+var baseUrl = '../';
+var task = '03-01';
+%>
+<html>
+<%- include(baseUrl + 'base.ejs', {parts: 'head', data: data, page: {task: task}}) %>
+<body>
+  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + ' バナーの自動ローテーション'} }) %>
+<main id="task_<%= task %>">
+    <div class="slidegallery">
+        <span>
+            <img src="<%= baseUrl %>img/03-01_image-01.jpg">
+        </span>
+        <span>
+            <img src="<%= baseUrl %>img/03-01_image-02.png">
+        </span>
+        <span>
+            <img src="<%= baseUrl %>img/03-01_image-03.jpg">
+        </span>
+    </div>
+</main>
+<%- include(baseUrl + 'base.ejs', {parts: 'footer', data: data}) %>
+<script src="<%= baseUrl %>js/<%= task %>.js"></script>
+</body>
+</html>
