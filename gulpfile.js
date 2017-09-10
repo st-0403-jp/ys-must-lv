@@ -23,7 +23,10 @@ var path = {
     '01-02',
     '01-03',
     '02-01',
-    '03-01'
+    '03-01',
+    '04-01',
+    '05-01',
+    '05-02'
   ],
   cssCmnLink: 'common.css',
   cssTaskLink: 'task.css',

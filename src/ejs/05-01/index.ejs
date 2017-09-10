@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<%
+var baseUrl = '../';
+var task = '05-01';
+%>
+<html>
+<%- include(baseUrl + 'base.ejs', {parts: 'head', data: data, page: {task: task}}) %>
+<body>
+  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + ' Ajax通信（XML）'} }) %>
+<main id="task_<%= task %>">
+    <input type="text" id="zipTextInput" maxlength="7" placeholder="郵便番号7桁を入力してください" required>
+    <button type="button" id="zipSearchBtn">郵便番号検索</button>
+    <div id="zipResult"></div>
+</main>
+<%- include(baseUrl + 'base.ejs', {parts: 'footer', data: data}) %>
+<script src="<%= baseUrl %>js/<%= task %>.js"></script>
+</body>
+</html>
