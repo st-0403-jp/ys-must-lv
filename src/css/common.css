@@ -32,8 +32,9 @@ h1 {
 }
 a {
   transition: opacity 0.1s;
+  text-decoration: none;
 }
-a:link {
+a:link, a:visited {
   color: #222;
 }
 a:hover {
@@ -70,4 +71,12 @@ a:hover {
 }
 .url-list dd a:hover {
   opacity: 0.5;
+}
+
+/* parts */
+ul {
+  list-style-type: none;
+}
+button {
+  padding: 5px;
 }

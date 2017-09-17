@@ -61,11 +61,27 @@
 }
 
 /* 04 */
-#task_04-01 button {
-    padding: 5px;
-}
 
 /* 05 */
-#task_05-01 button {
-    padding: 5px;
+#zipResult {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+/* 06 */
+#task_06-01 .list_tab {
+    font-size: 0;
+}
+#task_06-01 .list_tab li {
+    display: inline-block;
+    font-size: 1rem;
+    width: 100px;
+    text-align: center;
+    background-color: orange;
+    border: 1px solid #222;
+}
+#task_06-01 .list_tab li > a {
+    display: block;
+    padding: 5px 0;
 }
