@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<%
+var baseUrl = '../';
+var task = '07-02';
+%>
+<html>
+<%- include(baseUrl + 'base.ejs', {parts: 'head', data: data, page: {task: task}}) %>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js"></script>
+<body>
+  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + ' 移動経路検索'} }) %>
+<main id="task_<%= task %>">
+    <label for="depart">
+        出発地：
+        <input type="search" id="departLocation" name="depart" value="">
+    </label>
+    <label for="reach">
+        到着地：
+        <input type="search" id="reachLocation" name="reach" value="">
+    </label>
+    <button type="button" id="routeSearch">検索</button>
+    <hr>
+    <div id="map"></div>
+    <div id="route"></div>
+</main>
+<%- include(baseUrl + 'base.ejs', {parts: 'footer', data: data}) %>
+<script src="<%= baseUrl %>js/<%= task %>.js"></script>
+</body>
+</html>

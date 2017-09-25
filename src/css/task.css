@@ -87,8 +87,30 @@
 }
 
 /* 07 */
-#task_07-01 #map {
+#map {
+    display: inline-block;
+    vertical-align: top;
     width: 500px;
     height: 500px;
     margin-top: 20px;
+}
+#route {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px;
+    height: 500px;
+    background-color: #fff;
+}
+#task_07-02 label,
+#task_07-02 #routeSearch {
+    display: block;
+    width: 50%;
+    margin: 10px 0;
+}
+#task_07-02 input[type="search"] {
+    width: 83.5%;
+}
+#task_07-02 hr {
+    margin: 20px 0;
+    border-color: #222;
 }
