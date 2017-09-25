@@ -28,7 +28,8 @@ var path = {
     '05-01',
     '05-02',
     '05-03',
-    '06-01'
+    '06-01',
+    '07-01'
   ],
   cssCmnLink: 'common.css',
   cssTaskLink: 'task.css',
