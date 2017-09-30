@@ -8,6 +8,7 @@
 
     var mapEl = document.getElementById('map');
     var routeEl = document.getElementById('route');
+    
     var map_options = {};
     var map = {};
     var marker = {};
@@ -51,27 +52,33 @@
         });
     };
 
+    var depart = '';
+    var reach = '';
+    var $deferred1 = {};
+    var $deferred2 = {};
+    var requestRoute = {};
+    var directionsService = new google.maps.DirectionsService();
+    var directionsDisplay = new google.maps.DirectionsRenderer();
     searchMap('皇居');
     $searchBtn.on('click', function () {
-        var depart = $inputDepart.val();
-        var reach = $inputReach.val();
+        $(routeEl).empty();
+        depart = $inputDepart.val();
+        reach = $inputReach.val();
 
-        var $deferred1 = new $.Deferred();
-        var $deferred2 = new $.Deferred();
+        $deferred1 = new $.Deferred();
+        $deferred2 = new $.Deferred();
         mapGeo(depart, 'depart', $deferred1);
         mapGeo(reach, 'reach', $deferred2);
         $.when(
             $deferred1.promise(),
             $deferred2.promise()
         ).done(function () {
-            var directionsService = new google.maps.DirectionsService();
-            var request = {
+            requestRoute = {
                 origin: routeObj.depart,
                 destination: routeObj.reach,
                 travelMode: google.maps.DirectionsTravelMode.DRIVING
             };
-            directionsService.route(request, function (results) {
-                var directionsDisplay = new google.maps.DirectionsRenderer();
+            directionsService.route(requestRoute, function (results) {
                 directionsDisplay.setDirections(results);
                 directionsDisplay.setMap(createMap(routeObj.depart));
                 directionsDisplay.setPanel(routeEl);
