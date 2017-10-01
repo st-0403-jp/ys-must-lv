@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<%
+var baseUrl = '../';
+var task = '07-03';
+%>
+<html>
+<%- include(baseUrl + 'base.ejs', {parts: 'head', data: data, page: {task: task}}) %>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js"></script>
+<body>
+  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + ' 逆GEOコーディング（緯度と経度から住所を出す）'} }) %>
+<main id="task_<%= task %>">
+    <div id="map"></div>
+    <div id="route"></div>
+</main>
+<%- include(baseUrl + 'base.ejs', {parts: 'footer', data: data}) %>
+<script src="<%= baseUrl %>js/<%= task %>.js"></script>
+</body>
+</html>
