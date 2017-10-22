@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<%
+var baseUrl = '../';
+var task = '08-01';
+%>
+<html>
+<%- include(baseUrl + 'base.ejs', {parts: 'head', data: data, page: {task: task}}) %>
+<body>
+  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + ' ファイルアップロード'} }) %>
+<main id="task_<%= task %>">
+    <div id="upload-box"></div>
+    <div id="upload-status"></div>
+    <form>
+        <input type="file" id="fileUpload" name="file_upload">
+    </form>
+</main>
+<%- include(baseUrl + 'base.ejs', {parts: 'footer', data: data}) %>
+<script src="<%= baseUrl %>js/<%= task %>.js"></script>
+</body>
+</html>

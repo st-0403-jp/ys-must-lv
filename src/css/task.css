@@ -117,3 +117,13 @@
 #task_07-03 #map {
     width: 100%;
 }
+/* 08 */
+#upload-box {
+    width: 500px;
+    height: 500px;
+    background-color: orange;
+}
+#upload-status > img {
+    width: 100px;
+    height: 80px;
+}

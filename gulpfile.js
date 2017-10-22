@@ -17,6 +17,7 @@ var path = {
   dist: 'dist',
   lib: 'src/lib/*',
   img: 'src/img/*',
+  upload: 'src/upload/*',
   all: '*',
   tasks: [
     '01-01',
@@ -31,7 +32,8 @@ var path = {
     '06-01',
     '07-01',
     '07-02',
-    '07-03'
+    '07-03',
+    '08-01'
   ],
   cssCmnLink: 'common.css',
   cssTaskLink: 'task.css',
@@ -76,7 +78,8 @@ gulp.task('js', function () {
 gulp.task('copy', function () {
   var copySrc = [
     'lib',
-    'img'
+    'img',
+    'upload'
   ];
   return copySrc.forEach(function (name) {
     gulp.src(path[name])
