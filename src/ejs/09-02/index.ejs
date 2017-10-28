@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<%
+var baseUrl = '../';
+var task = '09-02';
+%>
+<html>
+<%- include(baseUrl + 'base.ejs', {parts: 'head', data: data, page: {task: task}}) %>
+<body>
+  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + ' 置換'} }) %>
+<main id="task_<%= task %>">
+    <label for="originalExp">オリジナル
+        <input type="text" id="originalExp" name="original" value="ケータイ電話はJ-PHONE" readonly>
+    </label>
+    <button type="button" id="replace1btn">置換</button>
+    <label for="replace1Exp">置換後1
+        <input type="text" id="replace1Exp" name="replace1" value="" readonly>
+    </label>
+    <button type="button" id="replace2btn">置換</button>
+    <label for="replace2Exp">置換後2
+        <input type="text" id="replace2Exp" name="replace2" value="" readonly>
+    </label>
+</main>
+<%- include(baseUrl + 'base.ejs', {parts: 'footer', data: data}) %>
+<script src="<%= baseUrl %>js/<%= task %>.js"></script>
+</body>
+</html>
