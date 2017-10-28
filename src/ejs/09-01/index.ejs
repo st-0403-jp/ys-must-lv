@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<%
+var baseUrl = '../';
+var task = '09-01';
+%>
+<html>
+<%- include(baseUrl + 'base.ejs', {parts: 'head', data: data, page: {task: task}}) %>
+<body>
+  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + ' 形式チェック（郵便番号/メールアドレス）'} }) %>
+<main id="task_<%= task %>">
+    <label for="zipExp">郵便番号：
+        <input type="text" id="zipExp" name="zip" value="" maxlength="7" placeholder="ハイフンなしで入力">
+    </label>
+    <label for="mailExp">メールアドレス：
+        <input type="text" id="mailExp" name="mail" value="" placeholder="メールアドレスを入力">
+    </label>
+</main>
+<%- include(baseUrl + 'base.ejs', {parts: 'footer', data: data}) %>
+<script src="<%= baseUrl %>js/<%= task %>.js"></script>
+</body>
+</html>

@@ -127,3 +127,7 @@
     width: 100px;
     height: 80px;
 }
+/* 09 */
+#task_09-01 label {
+    display: block;
+}
