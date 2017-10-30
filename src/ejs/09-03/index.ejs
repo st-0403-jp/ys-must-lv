@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<%
+var baseUrl = '../';
+var task = '09-03';
+%>
+<html>
+<%- include(baseUrl + 'base.ejs', {parts: 'head', data: data, page: {task: task}}) %>
+<body>
+  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + ' 抜き出し'} }) %>
+<main id="task_<%= task %>">
+    <label for="japaneseDate">yyyy年mm月dd日
+        <input type="text" id="japaneseDate" name="japaneseDate" value="" readonly>
+    </label>
+    <label for="yyyymmddDate">yyyy/mm/dd/
+        <input type="text" id="yyyymmddDate" name="yyyymmddDate" value="" readonly>
+    </label>
+    <button type="button" id="dateFormatChangeBtn">日付の形式変換</button>
+</main>
+<%- include(baseUrl + 'base.ejs', {parts: 'footer', data: data}) %>
+<script src="<%= baseUrl %>js/<%= task %>.js"></script>
+</body>
+</html>

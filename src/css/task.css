@@ -131,11 +131,16 @@
 #task_09-01 label {
     display: block;
 }
-
 #task_09-02 label {
     display: block;
     margin: 20px 0;
 }
 #task_09-02 input {
     width: 200px;
+}
+#task_09-03 label {
+    display: block;
+}
+#task_09-03 button {
+    margin-top: 20px;
 }
