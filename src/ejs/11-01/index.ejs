@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<%
+var baseUrl = '../';
+var task = '11-01';
+%>
+<html>
+<%- include(baseUrl + 'base.ejs', {parts: 'head', data: data, page: {task: task}}) %>
+<body>
+  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + ' フローティングメニュー'} }) %>
+<main id="task_<%= task %>">
+    <% for (var i = 0; i < 100; i++) { %>
+    <p><%= i %></p>
+    <% } %>
+    <nav>
+        <ul>
+            <li>コンピュータ</li>
+            <li>家電、AV</li>
+            <li>カメラ</li>
+            <li>音楽</li>
+            <li>CD</li>
+            <li>本、雑誌</li>
+        </ul>
+    </nav>
+</main>
+<%- include(baseUrl + 'base.ejs', {parts: 'footer', data: data}) %>
+<script src="<%= baseUrl %>js/<%= task %>.js"></script>
+</body>
+</html>
