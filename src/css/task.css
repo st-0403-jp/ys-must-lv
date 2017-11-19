@@ -199,3 +199,16 @@
 #task_12-01 #hamburger span:first-child {
     margin-top: 0;
 }
+
+/* 13 */
+#task_13-01 input[type="search"] {
+    margin: 10px 0;
+}
+#task_13-01 table {
+    border-collapse: collapse;
+}
+#task_13-01 table th,
+#task_13-01 table td {
+    border: 1px solid #fff;
+    padding: 10px 20px;
+}

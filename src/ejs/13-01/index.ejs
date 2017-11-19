@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<%
+var baseUrl = '../';
+var task = '13-01';
+%>
+<html>
+<%- include(baseUrl + 'base.ejs', {parts: 'head', data: data, page: {task: task}}) %>
+<body>
+  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + ' table操作（行の絞り込み）'} }) %>
+<main id="task_<%= task %>">
+    <input type="search" id="zodiacSearch">
+    <button type="button" id="zodiacSearchBtn">検索</button>
+    <table id="zodiacTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Japanese</th>
+                <th>Latin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+            var tableData = [
+                { id: '1', jName: '牡羊座', lName: 'Aries' },
+                { id: '2', jName: '牡牛座', lName: 'Taurus' },
+                { id: '3', jName: '双子座', lName: 'Gemini' },
+                { id: '4', jName: '獅子座', lName: 'Leo' },
+                { id: '5', jName: '乙女座', lName: 'Virgo' },
+                { id: '6', jName: '天秤座', lName: 'Libra' },
+                { id: '7', jName: '蠍座', lName: 'Scorpio' },
+                { id: '8', jName: '射手座', lName: 'Sagittatius' },
+                { id: '10', jName: '山羊座', lName: 'Capricorn' },
+                { id: '11', jName: '水瓶座', lName: 'Aquarius' },
+                { id: '12', jName: '魚座', lName: 'Pisces' }
+            ];
+            tableData.forEach(function (data) {
+            %>
+            <tr>
+                <td><%= data.id %></td>
+                <td><%= data.jName %></td>
+                <td><%= data.lName %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</main>
+<%- include(baseUrl + 'base.ejs', {parts: 'footer', data: data}) %>
+<script src="<%= baseUrl %>js/<%= task %>.js"></script>
+</body>
+</html>
