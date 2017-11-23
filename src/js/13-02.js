@@ -6,7 +6,7 @@
     var $inputSearch = $taskWrap.find('#zodiacSearch');
     var $btnSearch = $taskWrap.find('#zodiacSearchBtn');
     var $zodiacTable = $taskWrap.find('#zodiacTable');
-    var $addZodiacTable = $taskWrap.find('#addZodiacTable');
+    var $addZodiacTable = $taskWrap.find('#operationTable');
     var $btnAdd = $taskWrap.find('#zodiacAddBtn');
 
     var searchText = '';

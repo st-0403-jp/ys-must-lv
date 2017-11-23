@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <%
 var baseUrl = '../';
-var task = '13-02';
+var task = '13-03';
 %>
 <html>
 <%- include(baseUrl + 'base.ejs', {parts: 'head', data: data, page: {task: task}}) %>
 <body>
-  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + ' table操作（行の追加）'} }) %>
+  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + ' table操作（行の更新）'} }) %>
 <main id="task_<%= task %>">
-    <p>新規追加</p>
+    <p>データ編集</p>
     <table id="operationTable">
         <tbody>
             <tr>
+                <th>ID</th>
+                <td><input type="text" id="editId"></td>
+            </tr>
+            <tr>
                 <th>Japanese</th>
-                <td><input type="text" id="addJapanese"></td>
+                <td><input type="text" id="editJapanese"></td>
             </tr>
             <tr>
                 <th>Latin</th>
-                <td><input type="text" id="addLatin"></td>
+                <td><input type="text" id="editLatin"></td>
             </tr>
             <tr>
-                <td colspan="2"><button type="button" id="zodiacAddBtn">追加</button></td>
+                <td colspan="2"><button type="button" id="zodiacEditBtn">更新</button></td>
             </tr>
         </tbody>
     </table>

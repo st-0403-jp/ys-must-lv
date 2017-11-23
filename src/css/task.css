@@ -204,13 +204,16 @@
 #zodiacSearch {
     margin: 20px 0;
 }
-#zodiacTable, #addZodiacTable {
+#zodiacTable, #operationTable {
     border-collapse: collapse;
 }
 #zodiacTable th,
 #zodiacTable td,
-#addZodiacTable th,
-#addZodiacTable td {
+#operationTable th,
+#operationTable td {
     border: 1px solid #fff;
     padding: 10px 20px;
+}
+#zodiacTable tr:hover {
+    background-color: #f90;
 }
