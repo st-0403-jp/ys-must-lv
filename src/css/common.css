@@ -80,3 +80,11 @@ ul {
 button {
   padding: 5px;
 }
+table {
+  border-collapse: collapse;
+}
+table td {
+  border: 1px solid #222;
+  padding: 3px 8px;
+  text-align: center;
+}

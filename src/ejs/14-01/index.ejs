@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<%
+var baseUrl = '../';
+var task = '14-01';
+%>
+<html>
+<%- include(baseUrl + 'base.ejs', {parts: 'head', data: data, page: {task: task}}) %>
+<body>
+  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + ' カレンダー（ポップアップ表示、操作）'} }) %>
+<main id="task_<%= task %>">
+    <button type="button" id="calendarBtn">カレンダー</button>
+    <input type="text" id="calendarText" name="calendarText" value="" readonly>
+</main>
+<%- include(baseUrl + 'base.ejs', {parts: 'footer', data: data}) %>
+<template id="task_<%= task %>_temp-popup-01">
+    <div class="popup" id="popupCalendar">
+        <div class="popup-body">
+            <header>
+                <h2>日付を選択してください<span id="close">×</span></h2>
+            </header>
+            <main>
+                <table>
+                    <thead>
+                        <tr>
+                            <td colspan="2" id="prev-month">＜</td>
+                            <td colspan="3" id="year-month">2017年12月</td>
+                            <td colspan="2" id="next-month">＞</td>
+                        </tr>
+                        <tr>
+                            <td style="color: red;">日</td>
+                            <td>月</td>
+                            <td>火</td>
+                            <td>水</td>
+                            <td>木</td>
+                            <td>金</td>
+                            <td style="color: blue;">土</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </main>
+        </div>
+    </div>
+</template>
+<script src="<%= baseUrl %>js/<%= task %>.js"></script>
+</body>
+</html>
