@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<%
+var baseUrl = '../';
+var task = '15-01';
+%>
+<html>
+<%- include(baseUrl + 'base.ejs', {parts: 'head', data: data, page: {task: task}}) %>
+<body>
+  <%- include(baseUrl + 'base.ejs', {parts: 'header', data: data, page: {task: task + '  進捗状況を表示'} }) %>
+<main id="task_<%= task %>">
+    <section id="statusBar">
+        <div class="status"></div>
+        <span class="status-text">0</span>
+        <section id="statusBtn">
+            <button type="button" class="status-btn-minus">-</button>
+            <button type="button" class="status-btn-plus">+</button>
+        </section>
+    </section>
+</main>
+
+<script src="<%= baseUrl %>js/<%= task %>.js"></script>
+</body>
+</html>

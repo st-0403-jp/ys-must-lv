@@ -251,3 +251,43 @@
 #popupCalendar table {
     margin: 0 auto;
 }
+/* 15 */
+#statusBar {
+    width: 500px;
+    height: 250px;
+    border: 1px solid #fff;
+    background-color: #f00;
+    position: relative;
+}
+#statusBar .status {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 40%;
+    right: 0;
+    height: 100%;
+    background-color: #fff;
+}
+#statusBar .status-text {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: #555;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+}
+#statusBtn {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+#statusBtn button {
+    width: 100px;
+}
